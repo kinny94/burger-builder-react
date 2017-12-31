@@ -3,12 +3,20 @@ import BurgerIngridient from './BurgerIngridient/BurgerIngridient';
 
 import classes from './Burger.css';
 
-const burger = ( props ) => {
+const burger = ( props ) => {  
+
+    const transformedIngridients = Object.keys(props.ingridients)  //converting an object into array
+                                    .map(igKey => {
+                                        return [...Array(props.ingridients[igKey])] // an array with two elements
+                                        .map((_, i) => {
+                                            return <BurgerIngridient key={ igKey + i} type={ igKey } />;
+                                        })
+                                    });
+    
     return (
         <div className={ classes.Burger }>
             <BurgerIngridient type="bread-top" />
-            <BurgerIngridient type="cheese" />
-            <BurgerIngridient type="meat" />
+            { transformedIngridients }
             <BurgerIngridient type="bread-bottom" />
         </div>
     );
