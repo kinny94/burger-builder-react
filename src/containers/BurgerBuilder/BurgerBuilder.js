@@ -99,6 +99,10 @@ class BurgerBuilder extends Component{
         });
     }
 
+    purchaseContinueHandler = () => {
+        alert('You continue');
+    }
+
     render(){
 
         const disabledInfo = {
@@ -118,6 +122,8 @@ class BurgerBuilder extends Component{
                     > 
                     <OrderSummary 
                         ingridients={ this.state.ingridients }
+                        purchaseCancelled={ this.purchaseCancelHandler }
+                        purchaseContinued={ this.purchaseContinueHandler }
                     />
                 </Modal>
 
