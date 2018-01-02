@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Aux from '../../../hoc/Auxilary'
+import Aux from '../../../hoc/Auxilary/Auxilary'
 import Button from '../../UI/Button/Button';
 
 class OrderSummary extends Component{
@@ -12,7 +12,7 @@ class OrderSummary extends Component{
 
     render(){
 
-        const ingridientSummary = Object.keys(props.ingridients)
+        const ingridientSummary = Object.keys(this.props.ingridients)
                                 .map(igKey => {
                                     return <li key={ igKey }>
                                                 <span style={ {textTransform: 'capitalize'} }>{ igKey }</span>: { this.props.ingridients[igKey] }

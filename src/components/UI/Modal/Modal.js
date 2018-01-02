@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Aux from '../../../hoc/Auxilary';
+import Aux from '../../../hoc/Auxilary/Auxilary';
 import Backdrop from '../Backdrop/Backdrop';
 
 import classes from './Modal.css';
@@ -35,4 +35,4 @@ class Modal extends Component{
     }
 }
 
-export default modal;
+export default Modal;
