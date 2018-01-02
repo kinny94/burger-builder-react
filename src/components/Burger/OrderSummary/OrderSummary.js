@@ -1,30 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Aux from '../../../hoc/Auxilary'
 import Button from '../../UI/Button/Button';
 
-const orderSummary = ( props ) => {
-    
-    const ingridientSummary = Object.keys(props.ingridients)
+class OrderSummary extends Component{
+
+    //This couold be a functional component, doesnt have to be a class
+
+    componentWillUpdate(){
+        console.log('[OrderSummary] will update');
+    }
+
+    render(){
+
+        const ingridientSummary = Object.keys(props.ingridients)
                                 .map(igKey => {
                                     return <li key={ igKey }>
-                                                <span style={ {textTransform: 'capitalize'} }>{ igKey }</span>: { props.ingridients[igKey] }
+                                                <span style={ {textTransform: 'capitalize'} }>{ igKey }</span>: { this.props.ingridients[igKey] }
                                             </li>
                                 });
+
+        return (
+            <Aux>
+                <h3>Your Order</h3>
+                <p>A delicious burger with the following ingridients: </p>
+                <ul>
+                    { ingridientSummary }
+                </ul>
+                <p><strong>Total Price: ${ this.props.price.toFixed(2) }</strong></p>
+                <p>Continue to Checkout ?</p>
+                <Button btnType="Danger" clicked={ this.props.purchaseCancelled }>CANCEL</Button>
+                <Button btnType="Success" clicked={ this.props.purchaseContinued }>CONTINUE</Button>
     
-    return (
-        <Aux>
-            <h3>Your Order</h3>
-            <p>A delicious burger with the following ingridients: </p>
-            <ul>
-                { ingridientSummary }
-            </ul>
-            <p><strong>Total Price: ${ props.price.toFixed(2) }</strong></p>
-            <p>Continue to Checkout ?</p>
-            <Button btnType="Danger" clicked={ props.purchaseCancelled }>CANCEL</Button>
-            <Button btnType="Success" clicked={ props.purchaseContinued }>CONTINUE</Button>
+            </Aux>
+        )
+    }
+}
 
-        </Aux>
-    )
-};
-
-export default orderSummary;
+export default OrderSummary;
