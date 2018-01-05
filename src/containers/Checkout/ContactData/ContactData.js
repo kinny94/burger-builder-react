@@ -101,7 +101,7 @@ class ContactData extends Component{
         }
 
         let form = (
-            <form>  
+            <form>    
                 { formElementArray.map(formElement => (
                     <Input 
                         key={ formElement.id }
