@@ -81,10 +81,11 @@ class ContactData extends Component{
                 elementConfig: {
                     options: [
                         { value: 'fastest', displayValue: 'Fastest'},
-                        { value: 'cheapest', displayValue: 'Cheap'}
+                        { value: 'cheapest', displayValue: 'Cheapest'}
                     ]
                 },
-                value: 'fastest',
+                value: 'fastest ',
+                validation: {},
                 valid: true
             }
         },
@@ -128,7 +129,7 @@ class ContactData extends Component{
         
         let isValid = true;
         if( rules.required ){
-            isValid = value.trim() !== ''  ;
+            isValid = value.trim() !== '' && isValid;
         }
 
         if( rules.minLength ){
