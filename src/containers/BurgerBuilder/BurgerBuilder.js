@@ -31,17 +31,17 @@ class BurgerBuilder extends Component{
 
     componentDidMount(){
         
-        axios.get('https://burger-builder-application.firebaseio.com/ingridients.json')
-        .then((response) => {
-            this.setState({
-                ingridients: response.data
-            });
-        })
-        .catch((error) => {
-            this.setState({
-                error: true
-            });
-        });
+        // axios.get('https://burger-builder-application.firebaseio.com/ingridients.json')
+        // .then((response) => {
+        //     this.setState({
+        //         ingridients: response.data
+        //     });
+        // })
+        // .catch((error) => {
+        //     this.setState({
+        //         error: true
+        //     });
+        // });
     }
 
     updatePurchaseState(ingridients){
