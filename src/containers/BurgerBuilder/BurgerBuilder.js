@@ -34,6 +34,26 @@ class BurgerBuilder extends Component{
         //         error: true
         //     });
         // });
+
+        // var config = {
+        //     headers: {'authorization': 'Bearer DEMO_TOKEN'}
+        // };
+
+        // axios.get('https://api.clever.com/v1.1/sections/', config)
+        // .then(function(response){
+        //     const allData = response.data.data;
+        //     console.log(allData); // ex.: { user: 'Your User'}
+            
+        //     const allSections = allData.length;
+
+        //     let totalNumberOfStudents = 0;
+        
+        //     for( let i=0; i<allData.length; i++ ){
+        //         totalNumberOfStudents += allData[i]['data']['students'].length;
+        //     }
+
+        //     console.log(totalNumberOfStudents / allSections);
+        // });  
     }
 
     updatePurchaseState(ingridients){
