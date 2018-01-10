@@ -1,28 +1,41 @@
-import * as actionTypes from './actionTypes';
-import axios from '../../axios-orders';
- 
-export const purchaseBurgerSuccess = ( id ) => {
-    return {
-        type: actionTypes.PURCHASE_BURGER_SUCCESS,
-        orderId: id,
-        orderData: orderData
-    };
+import * as actionTypes from '../actions/actionTypes';
+
+const initialState = {
+    orders: [], 
+    loading: false
 };
 
-export const purchaseBurgerFail = ( error ) => {
-    return {
-        type:  PURCHASE_BURGER_FAIL,
-        error: error
-    };
+const reducer = ( state = initialState, action ) => {
+    switch ( action.type ){
+
+        case actionTypes.PURCHASE_BURGER_START:
+            return {
+                ...state,
+                loading: true
+            };
+        
+        case actionTypes.PURCHASE_BURGER_SUCCESS:
+            
+            const newOreder = {
+                ...action.orderData,
+                id: action.orderId
+            }
+
+            return {
+                ...state,
+                loading: false,
+                orders: state.orders.concat( newOrder );
+            };
+            
+        case actionTypes.PURCHASE_BURGER_FAIL:
+            return {
+                ...state,
+                loading: false
+            };
+            
+        default: 
+            return state;
+    }
 };
 
-
-export const purchaseBurgerStart = ( orderData ) => {
-    return dispatch => {
-        axios.post( '/orders.json', orderData ).then((response) => {
-           dispatch( purchaseBurgerSuccess( response.data, orderData ));
-        }).catch((err) => {
-            dispatch( purchaseBurgerFail( err ) );
-        });
-    };
-};
+export default reducer;
