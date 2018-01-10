@@ -42,7 +42,7 @@ const reducer = ( state = initialState, action) => {
                 ingridients: {
                     salad: action.ingridients.salad,
                     bacon: action.ingridients.bacon,
-                    cheese: actionTypes.ingridients.cheese,
+                    cheese: action.ingridients.cheese,
                     mean: action.ingridients.meat
                 },
                 error: false 

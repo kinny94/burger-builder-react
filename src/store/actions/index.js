@@ -1,6 +1,9 @@
 export {    
-            addIngridient,
-            removeIngriedient,
-            initIngridients
-        } from './burgerBuilder';
-export {} from './order';
+    addIngridient,
+    removeIngriedient,
+    initIngridients
+} from './burgerBuilder';
+
+export { 
+    purchaseBurgerStart 
+} from './order';
