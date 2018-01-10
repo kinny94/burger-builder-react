@@ -8,7 +8,7 @@ import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
 import axios from '../../axios-orders';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import * as actionTypes from '../../store/actions';
+import * as burgerBuilderActions from '../../store/actions/index';
 
 class BurgerBuilder extends Component{
 
@@ -150,15 +150,9 @@ const mapDispatchToProps = dispatch => {
 
     return {
         
-        onIngridientAdded: ( ingName ) => dispatch({
-            type: actionTypes.ADD_INGRIDIENT,
-            ingridientName: ingName
-        }), 
+        onIngridientAdded: ( ingName ) => dispatch( burgerBuilderActions.addIngridient( ingName ) ), 
 
-        onIngridientRemoved: ( ingName ) => dispatch({
-            type: actionTypes.REMOVE_INGRIDIENT,
-            ingridientName: ingName
-        })
+        onIngridientRemoved: ( ingName ) => dispatch( burgerBuilderActions.removeIngriedient( ingName ) )
     }
 }
 
