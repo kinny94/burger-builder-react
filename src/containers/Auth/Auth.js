@@ -5,6 +5,8 @@ import classes from './Auth.css';
 import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import { Redirect } from 'react-router-dom';     
+
 class Auth extends Component{
 
     state = {
@@ -139,8 +141,14 @@ class Auth extends Component{
             )
         }
 
+        let authRedirect = null;
+        if( this.props.isAuthenticated ){
+            authRedirect = <Redirect to="/" />
+        }
+
         return(
             <div className={ classes.Auth } >
+                { authRedirect }
                 { errorMessage }
                 <form onSubmit={ this.submitHandler }>
                     { form }
@@ -165,7 +173,8 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
-        error: state.auth.error
+        error: state.auth.error,
+        isAuthenticated: state.auth.token !== null
     }
 };
 
