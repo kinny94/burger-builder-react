@@ -6,10 +6,6 @@ class OrderSummary extends Component{
 
     //This couold be a functional component, doesnt have to be a class
 
-    componentWillUpdate(){
-        console.log('[OrderSummary] will update');
-    }
-
     render(){
 
         const ingridientSummary = Object.keys(this.props.ingridients)

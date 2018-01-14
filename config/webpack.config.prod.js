@@ -314,7 +314,6 @@ module.exports = {
 					// https://github.com/facebookincubator/create-react-app/issues/2612
 					return;
 				}
-				console.log(message);
 			},
 			minify: true,
 			// For unknown URLs, fallback to the index page
