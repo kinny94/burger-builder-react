@@ -62,11 +62,8 @@ const reducer = ( state = initialState, action) => {
     switch( action.type ){
         
         case actionTypes.ADD_INGRIDIENT: return addIngridient( state, action );
-        
         case actionTypes.REMOVE_INGRIDIENT: return removeIngridient ( state, action );
-        
-        case actionTypes.SET_INGRIDIENTS: return setIngridients( state, action );
-            
+        case actionTypes.SET_INGRIDIENTS: return setIngridients( state, action );   
         case actionTypes.FETCH_INGRIDIENTS_FAILED:  return fetchIngridients( state, action );     
 
         default: return state; 
