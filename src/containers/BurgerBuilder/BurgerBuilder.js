@@ -124,7 +124,7 @@ const mapDispatchToProps = dispatch => {
     return {
         
         onIngridientAdded: ( ingName ) => dispatch( burgerBuilderActions.addIngridient( ingName ) ), 
-        onIngridientRemoved: ( ingName ) => dispatch( burgerBuilderActions.removeIngriedient( ingName ) ),
+        onIngridientRemoved: ( ingName ) => dispatch( burgerBuilderActions.removeIngridient( ingName ) ),
         onInitIngridients: () => dispatch( burgerBuilderActions.initIngridients() ),
         onInitPurchase: () => dispatch( burgerBuilderActions.purchaseInit() ),
         onSetAuthRedirectPath: ( path  ) => dispatch( burgerBuilderActions.setAuthRedirectPath( path ))
